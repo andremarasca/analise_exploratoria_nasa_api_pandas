@@ -96,4 +96,20 @@ grupo = df_approach_intervalo[["id", "year"]]
 
 grupo.hist(bins=18)
 
+#%% Histograma de tamanhos de objetos que são perigosos;
 
+df_perigosos = df[:][perigosos]
+df_nao_perigosos = df[:][~perigosos]
+
+# Criar dataframe só com id e diametro estimado maximo
+
+df_diametro_periogos = df_perigosos[["id", "estimated_diameter_kilometers_estimated_diameter_max"]]
+df_diametro_nao_periogos = df_nao_perigosos[["id", "estimated_diameter_kilometers_estimated_diameter_max"]]
+
+# Histograma de tamanhos de objetos que são perigosos;
+
+df_diametro_periogos.hist()
+
+# Histograma de tamanhos de objetos não perigosos;
+
+df_diametro_nao_periogos.hist()
